@@ -1,10 +1,11 @@
+import PizzaImage from "/src/shared/PizzaImage/PizzaImage";
 import PizzaDetails from "/src/shared/PizzaDetails/PizzaDetails";
 import PizzaHeading from "/src/shared/PizzaHeading/PizzaHeading";
 
 export default function Home() {
   return (
     <>
-      <div className="">
+      <div className="flex">
         <div>
           <PizzaHeading content={"Today's Deal"} />
           <PizzaDetails
@@ -14,7 +15,7 @@ export default function Home() {
           />
         </div>
         <figure>
-          
+          <PizzaImage />
         </figure>
       </div>
     </>
