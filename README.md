@@ -1,12 +1,10 @@
-# React + Vite
+Pizza Delivery WebApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with React, Node, Express and MongoDB
 
-Currently, two official plugins are available:
+A customer can see details of different pizzas with a beautiful animation with a slider. Then he/she can choose a pizza with preferences like: base, sauce, cheese type and veggies-or-not. Then he/she can proceed to checkout. Admin have access to all other information along with remaining stock of ingredients. An warning notification will be sent towards Admin if it reaches below threshold. And also Admin can change the delivery status of the ongoing orders of pizzas. Any change made by Admin will reflect in user's UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+But, first of all, you have to create an account or sign in to use these features.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Front-End: React, Tailwind, React Router
+Back-End: Node, Express, MongoDB
