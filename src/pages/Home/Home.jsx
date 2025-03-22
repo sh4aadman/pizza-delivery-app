@@ -1,7 +1,7 @@
-import PizzaImage from "/src/shared/PizzaImage/PizzaImage";
-import PizzaDetails from "/src/shared/PizzaDetails/PizzaDetails";
-import PizzaHeading from "/src/shared/PizzaHeading/PizzaHeading";
-import PizzaSelector from "/src/shared/PizzaSelector/PizzaSelector";
+import PizzaImage from "/src/pages/Home/PizzaImage/PizzaImage";
+import PizzaDetails from "/src/pages/Home/PizzaDetails/PizzaDetails";
+import PizzaHeading from "/src/pages/Home/PizzaHeading/PizzaHeading";
+import PizzaSelector from "/src/pages/Home/PizzaSelector/PizzaSelector";
 
 export default function Home() {
   return (

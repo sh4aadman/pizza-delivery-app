@@ -16,6 +16,7 @@ export default function WebRoutes() {
         <Route path="/orders" element={<Orders />} />
         <Route element={<Auth />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/signout" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
       </Route>

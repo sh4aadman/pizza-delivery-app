@@ -4,3 +4,7 @@
 @theme {
     --font-inter: "Inter", sans-serif;
 }
+
+a.active {
+    color: #000000;
+}
