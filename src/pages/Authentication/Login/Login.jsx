@@ -15,7 +15,7 @@ export default function Login() {
           <input name="password" id="password" type="password" />
         </label>
         <button
-          className="text-2xl my-3 px-2 py-1 rounded-lg border-1"
+          className="text-2xl mt-5 mb-2 px-2 py-1 rounded-lg border-1"
           type="submit"
         >
           Login
