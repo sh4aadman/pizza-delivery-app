@@ -1,5 +1,5 @@
-function hello() {
-  console.log("hello");
+function capitalizeFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default hello;
+export default capitalizeFirst;
