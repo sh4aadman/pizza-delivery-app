@@ -41,7 +41,7 @@ export default function Pizzas() {
           options={["Bell Peppers", "Mushrooms", "Olives", "Onions", "Opt Out"]}
         />
         <label className="font-light text-[#000000] text-2xl">
-          Enter quantity:
+          Enter quantity :
           <input className="ml-4" type="number"></input>
         </label>
         <button className="font-light text-[#000000] text-2xl px-2 py-1 rounded-lg border-1" type="submit">
