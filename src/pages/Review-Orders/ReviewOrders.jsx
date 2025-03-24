@@ -8,7 +8,7 @@ export default function ReviewOrders() {
       <p className="italic font-light mb-6">
         Check remaining inventories here: <Link className="underline" to="/dashboard">Inventories</Link>
       </p>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 w-5/6">
         <ReviewOrder />
         <ReviewOrder />
         <ReviewOrder />
