@@ -7,8 +7,8 @@ export default function Signup() {
         <h1 className="text-4xl">Signup</h1>
         <p className="text-2xl my-10">Welcome!</p>
         <label className="block my-5 text-2xl">
-          Username :
-          <input name="username" id="username" type="text" />
+          Email :
+          <input name="email" id="email" type="text" />
         </label>
         <label className="block my-5 text-2xl">
           Password :

@@ -1,10 +1,14 @@
 import Labels from "/src/shared/Labels/Labels";
 import Heading from "/src/shared/Heading/Heading";
+import { useNavigate } from "react-router";
 
 export default function Pizzas() {
+
+  let navigate = useNavigate();
+
   return (
     <>
-      <form className="md:w-5/6 mx-auto my-11 py-8 flex flex-col items-start gap-12">
+      <form className="md:w-5/6 mx-auto my-11 py-8 flex flex-col items-start gap-12" onSubmit={() => navigate("/checkout")}>
         <Heading content={"Custom Pizza"} />
         <Labels
           name={"base"}

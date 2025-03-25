@@ -12,7 +12,7 @@ export default function ReviewOrder() {
           Quantity : <span className="italic font-thin">quantity</span>
         </p>
         <p className="font-light">
-          Place to deliver :{" "}
+          Place to deliver :
           <span className="italic font-thin">place to deliver</span>
         </p>
       </section>
