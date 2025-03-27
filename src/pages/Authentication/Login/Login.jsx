@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 
 export default function Login() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -19,23 +19,44 @@ export default function Login() {
         <label className="block my-5 text-2xl">
           Email :
           <input
-            {...register("email")}
+            {...register("email", {
+              required: "Email is required",
+              validate: (value) => {
+                if (!value.includes("@")) {
+                  return "Email must include @";
+                }
+                return true;
+              },
+            })}
             className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-2 ml-2 italic font-light"
             name="email"
             id="email"
             type="text"
+            autoComplete="on"
           />
         </label>
+        {errors.email && (
+          <div className="text-thin text-red-500">{errors.email.message}</div>
+        )}
         <label className="block my-5 text-2xl">
           Password :
           <input
-            {...register("password")}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must have at least 6 characters",
+              },
+            })}
             className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-2 ml-2 italic font-light"
             name="password"
             id="password"
             type="password"
           />
         </label>
+        {errors.password && (
+          <div className="text-thin text-red-500">{errors.password.message}</div>
+        )}
         <button
           className="text-2xl mt-5 mb-2 px-2 py-1 rounded-lg border-1"
           type="submit"
