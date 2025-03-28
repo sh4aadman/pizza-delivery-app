@@ -1,11 +1,37 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { UserContext } from "/src/auth/Auth";
 
 export default function Login() {
-  const { register, handleSubmit, formState: {errors} } = useForm();
+  const { loginUser } = useContext(UserContext);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const [firebaseErr, setFirebaseErr] = useState(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const email = data.email;
+    const password = data.password;
+
+    try {
+      await loginUser(email, password);
+      navigate("/");
+      reset();
+    } catch (error) {
+      setFirebaseErr(error.message);
+      setTimeout(() => {
+        setFirebaseErr(null);
+        reset();
+      }, 1500);
+    }
   };
 
   return (
@@ -55,7 +81,12 @@ export default function Login() {
           />
         </label>
         {errors.password && (
-          <div className="text-thin text-red-500">{errors.password.message}</div>
+          <div className="text-thin text-red-500">
+            {errors.password.message}
+          </div>
+        )}
+        {firebaseErr && (
+          <div className="text-thin text-red-500">{firebaseErr}</div>
         )}
         <button
           className="text-2xl mt-5 mb-2 px-2 py-1 rounded-lg border-1"

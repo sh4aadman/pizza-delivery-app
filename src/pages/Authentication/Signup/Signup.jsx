@@ -1,15 +1,31 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { UserContext } from "/src/auth/Auth";
 
 export default function Signup() {
+  const { signupUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const [firebaseErr, setFirebaseErr] = useState(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const email = data.email;
+    const password = data.password;
+
+    try {
+      await signupUser(email, password);
+      navigate("/");
+    } catch (error) {
+      setFirebaseErr(error.message);
+    }
   };
 
   return (
@@ -62,6 +78,9 @@ export default function Signup() {
           <div className="text-thin text-red-500">
             {errors.password.message}
           </div>
+        )}
+        {firebaseErr && (
+          <div className="text-thin text-red-500">{firebaseErr}</div>
         )}
         <button
           className="text-2xl mt-5 mb-2 px-2 py-1 rounded-lg border-1"
