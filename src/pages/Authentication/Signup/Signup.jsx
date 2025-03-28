@@ -14,6 +14,7 @@ export default function Signup() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -25,6 +26,10 @@ export default function Signup() {
       navigate("/");
     } catch (error) {
       setFirebaseErr(error.message);
+      setTimeout(() => {
+        setFirebaseErr(null);
+        reset();
+      }, 1500);
     }
   };
 

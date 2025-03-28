@@ -6,6 +6,7 @@ import Orders from "/src/pages/Orders/Orders";
 import Checkout from "/src/pages/Checkout/Checkout";
 import Login from "/src/pages/Authentication/Login/Login";
 import Signup from "/src/pages/Authentication/Signup/Signup";
+import Signout from "/src/pages/Authentication/Signout/Signout";
 import Admin from "/src/pages/Admin/Admin";
 import Dashboard from "/src/pages/Dashboard/Dashboard";
 import ReviewOrders from "/src/pages/Review-Orders/ReviewOrders";
@@ -21,7 +22,7 @@ export default function WebRoutes() {
       </Route>
       <Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/signout" element={<Login />} />
+        <Route path="/signout" element={<Signout />} />
         <Route path="/signup" element={<Signup />} />
       </Route>
       <Route>
