@@ -36,6 +36,7 @@ export default function Signup() {
             name="email"
             id="email"
             type="text"
+            autoComplete="on"
           />
         </label>
         {errors.email && (

@@ -4,7 +4,6 @@ import Root from "/src/layouts/Root";
 import Pizzas from "/src/pages/Pizzas/Pizzas";
 import Orders from "/src/pages/Orders/Orders";
 import Checkout from "/src/pages/Checkout/Checkout";
-// import Auth from "/src/auth/Auth";
 import Login from "/src/pages/Authentication/Login/Login";
 import Signup from "/src/pages/Authentication/Signup/Signup";
 import Admin from "/src/pages/Admin/Admin";
@@ -21,7 +20,6 @@ export default function WebRoutes() {
         <Route path="/checkout" element={<Checkout />} />
       </Route>
       <Route>
-        {/* element={<Auth />} */}
         <Route path="/login" element={<Login />} />
         <Route path="/signout" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
