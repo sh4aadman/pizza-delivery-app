@@ -30,7 +30,7 @@ export default function Login() {
       setTimeout(() => {
         setFirebaseErr(null);
         reset();
-      }, 1500);
+      }, 2500);
     }
   };
 

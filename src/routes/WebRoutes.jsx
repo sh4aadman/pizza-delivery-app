@@ -10,26 +10,29 @@ import Signout from "/src/pages/Authentication/Signout/Signout";
 import Admin from "/src/pages/Admin/Admin";
 import Dashboard from "/src/pages/Dashboard/Dashboard";
 import ReviewOrders from "/src/pages/Review-Orders/ReviewOrders";
+import PrivateRoutes from "/src/routes/Private-Routes/PrivateRoutes";
 
 export default function WebRoutes() {
   return (
     <Routes>
-      <Route element={<Root />}>
+      <Route
+        element={
+          <PrivateRoutes>
+            <Root />
+          </PrivateRoutes>
+        }
+      >
         <Route index element={<Home />} />
         <Route path="/pizzas" element={<Pizzas />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/checkout" element={<Checkout />} />
-      </Route>
-      <Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signout" element={<Signout />} />
-        <Route path="/signup" element={<Signup />} />
-      </Route>
-      <Route>
         <Route path="/admin" element={<Admin />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/review-orders" element={<ReviewOrders />} />
       </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signout" element={<Signout />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 }
