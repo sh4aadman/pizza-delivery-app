@@ -12,7 +12,7 @@ export default function Signout() {
     const handleSignout = async () => {
         try {
             await signoutUser();
-            navigate("/login");
+            navigate("/login", {replace: true});
             setFirebaseErr(null);
         } catch (error) {
             setFirebaseErr(error.message);

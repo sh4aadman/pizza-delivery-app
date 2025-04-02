@@ -5,11 +5,9 @@ import { Navigate, Outlet } from "react-router";
 export default function PrivateRoutes({ children }) {
   const { user } = useContext(UserContext);
 
-  console.log(user, children);
-
   if (user) {
     return children ? children : <Outlet />;
   }
 
-  return <Navigate to="/login" />;
+  return <Navigate to="/login" replace={true} />;
 }

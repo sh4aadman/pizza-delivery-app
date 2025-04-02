@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "/src/shared/Navbar/Logo";
+import { VscSignOut } from "react-icons/vsc";
 import { NavLink } from "react-router";
 
 export default function Navbar() {
@@ -17,7 +18,7 @@ export default function Navbar() {
       link: "/orders",
     },
     {
-      name: "Sign Out",
+      name: <VscSignOut />,
       link: "/signout",
     },
   ];

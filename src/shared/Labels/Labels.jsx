@@ -1,12 +1,19 @@
+import { Controller } from "react-hook-form";
 import Options from "/src/shared/Options/Options";
 
-export default function Labels({name, options}) {
+export default function Labels({ control, name, options }) {
   return (
     <label className="font-light text-[#000000] text-2xl">
       Pick a {name} :
-      <select className="ml-4 p-1" name={name} id={name}>
-        <Options options={options} />
-      </select>
+      <Controller
+        name={name}
+        control={control}
+        render={(field) => {
+          <select className="ml-4 p-1" {...field}>
+            <Options options={options} />
+          </select>;
+        }}
+      />
     </label>
   );
 }
