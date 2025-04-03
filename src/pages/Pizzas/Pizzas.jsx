@@ -7,17 +7,25 @@ export default function Pizzas() {
   const navigate = useNavigate();
 
   const {
-    // register,
+    register,
     control,
     handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+    // formState: { errors },
+    // reset,
+  } = useForm({
+    defaultValues: {
+      base: "Thin Crust",
+      sauce: "Classic Tomato",
+      cheese: "Mozzarella",
+      veggie: "Bell Peppers",
+      quantity: 1,
+    },
+  });
 
   const onSubmit = async (data) => {
     console.log(data);
-    navigate("/checkout");
-  }
+    // navigate("/checkout");
+  };
 
   return (
     <form
@@ -26,17 +34,18 @@ export default function Pizzas() {
     >
       <Heading content={"Custom Pizza"} />
       <Labels
-        name={"base"}
+        name="base"
         options={[
           "Thin Crust",
           "Thick Crust",
           "Stuffed Crust",
           "Whole Wheat Crust",
           "Gluten-Free Crust",
-        ]} control={control}
+        ]}
+        control={control}
       />
       <Labels
-        name={"sauce"}
+        name="sauce"
         options={[
           "Classic Tomato",
           "Alfredo",
@@ -44,9 +53,10 @@ export default function Pizzas() {
           "Pesto",
           "Spicy Arrabbiata",
         ]}
+        control={control}
       />
       <Labels
-        name={"cheese"}
+        name="cheese"
         options={[
           "Mozzarella",
           "Cheddar",
@@ -54,17 +64,23 @@ export default function Pizzas() {
           "Provolone",
           "Vegan Cheese",
         ]}
+        control={control}
       />
       <Labels
-        name={"veggie"}
+        name="veggie"
         options={["Bell Peppers", "Mushrooms", "Olives", "Onions", "Opt Out"]}
+        control={control}
       />
       <label className="font-light text-[#000000] text-2xl">
         Enter quantity :
         <input
-          className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-4 ml-4 italic font-light"
+          {...register("quantity", {
+            required: true,
+            min: 1,
+          })}
+          name="quantity"
+          className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-4 ml-4 font-light"
           type="number"
-          min="1"
         ></input>
       </label>
       <button
