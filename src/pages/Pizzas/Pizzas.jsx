@@ -2,16 +2,19 @@ import Labels from "/src/shared/Labels/Labels";
 import Heading from "/src/shared/Heading/Heading";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export default function Pizzas() {
   const navigate = useNavigate();
+
+  const [dbErr, setDbErr] = useState(null);
 
   const {
     register,
     control,
     handleSubmit,
-    // formState: { errors },
-    // reset,
+    formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       base: "Thin Crust",
@@ -23,8 +26,24 @@ export default function Pizzas() {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
-    // navigate("/checkout");
+    const base = data.base;
+    const sauce = data.sauce;
+    const cheese = data.cheese;
+    const veggie = data.veggie;
+    const quantity = data.quantity;
+
+    try {
+      // await 
+      const order = { base, sauce, cheese, veggie, quantity };
+      console.log("order submitted", order);
+      navigate("/checkout");
+    } catch (error) {
+      setDbErr(error.message);
+      setTimeout(() => {
+        setDbErr(null);
+        reset();
+      });
+    }
   };
 
   return (
@@ -79,7 +98,7 @@ export default function Pizzas() {
             min: 1,
           })}
           name="quantity"
-          className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-4 ml-4 font-light"
+          className="focus:outline-none focus:bg-[#f0f0f0]focus:border-b-1 focus:ml-4 ml-4 p-1 w-[300px] border-[#ccc] border-1 font-light bg-[#f0f0f0] rounded-md"
           type="number"
         ></input>
       </label>
@@ -89,6 +108,7 @@ export default function Pizzas() {
       >
         Place Order
       </button>
+      {dbErr && <div className="text-thin text-red-500">{dbErr}</div>}
     </form>
   );
 }

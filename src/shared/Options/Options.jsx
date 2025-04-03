@@ -7,7 +7,7 @@ export default function Options({ options }) {
       {options.map((option) => (
         <option
           key={option}
-          className="font-light text-[#000000] text-2xl"
+          className="w-10 font-light text-[#000000] text-2xl"
           value={option}
         >
           {capitalizeFirst(option)}
