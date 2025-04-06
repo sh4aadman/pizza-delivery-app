@@ -57,7 +57,7 @@ export default function Login() {
             className="focus:outline-none focus:bg-transparent focus:border-b-1 focus:ml-2 ml-2 italic font-light"
             name="email"
             id="email"
-            type="text"
+            type="email"
             autoComplete="on"
           />
         </label>

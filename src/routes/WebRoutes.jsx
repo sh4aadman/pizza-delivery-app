@@ -4,6 +4,7 @@ import Root from "/src/layouts/Root";
 import Pizzas from "/src/pages/Pizzas/Pizzas";
 import Orders from "/src/pages/Orders/Orders";
 import Checkout from "/src/pages/Checkout/Checkout";
+import Payments from "/src/pages/Payments/Payments";
 import Login from "/src/pages/Authentication/Login/Login";
 import Signup from "/src/pages/Authentication/Signup/Signup";
 import Signout from "/src/pages/Authentication/Signout/Signout";
@@ -26,6 +27,7 @@ export default function WebRoutes() {
         <Route path="/pizzas" element={<Pizzas />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/payment" element={<Payments />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/review-orders" element={<ReviewOrders />} />

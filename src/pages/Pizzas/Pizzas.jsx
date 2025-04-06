@@ -3,17 +3,17 @@ import Heading from "/src/shared/Heading/Heading";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { postOrder } from "../../utils/orders";
 
 export default function Pizzas() {
   const navigate = useNavigate();
 
-  const [dbErr, setDbErr] = useState(null);
+  const [err, setErr] = useState(null);
 
   const {
     register,
     control,
     handleSubmit,
-    formState: { errors },
     reset,
   } = useForm({
     defaultValues: {
@@ -33,16 +33,17 @@ export default function Pizzas() {
     const quantity = data.quantity;
 
     try {
-      // await 
       const order = { base, sauce, cheese, veggie, quantity };
-      console.log("order submitted", order);
-      navigate("/checkout");
+      const response = await postOrder(order);
+      if (response.insertedId) {
+        navigate("/checkout");
+      }
     } catch (error) {
-      setDbErr(error.message);
+      setErr(error.message);
       setTimeout(() => {
-        setDbErr(null);
+        setErr(null);
         reset();
-      });
+      }, 2500);
     }
   };
 
@@ -108,7 +109,7 @@ export default function Pizzas() {
       >
         Place Order
       </button>
-      {dbErr && <div className="text-thin text-red-500">{dbErr}</div>}
+      {err && <div className="text-thin text-red-500">{err}</div>}
     </form>
   );
 }
