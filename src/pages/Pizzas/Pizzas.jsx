@@ -36,7 +36,7 @@ export default function Pizzas() {
       const order = { base, sauce, cheese, veggie, quantity };
       const response = await postOrder(order);
       if (response.insertedId) {
-        navigate("/checkout");
+        navigate(`/checkout/${response.insertedId}`);
       }
     } catch (error) {
       setErr(error.message);

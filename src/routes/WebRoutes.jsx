@@ -25,9 +25,9 @@ export default function WebRoutes() {
       >
         <Route index element={<Home />} />
         <Route path="/pizzas" element={<Pizzas />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout/:orderId" element={<Checkout />} />
         <Route path="/payment" element={<Payments />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/review-orders" element={<ReviewOrders />} />

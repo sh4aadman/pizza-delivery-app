@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
-import { postDeliveryAddress } from "/src/utils/deliveries";
+import { Link, useNavigate, useParams } from "react-router";
+import { patchDeliveryAddress } from "/src/utils/deliveries";
 
 export default function Checkout() {
+  const orderId = useParams();
+
   const navigate = useNavigate();
 
   const [err, setErr] = useState(null);
@@ -20,8 +22,8 @@ export default function Checkout() {
 
     try {
       const deliveryAddress = { placeToDeliver };
-      const response = await postDeliveryAddress(deliveryAddress);
-      if (response.insertedId) {
+      const response = await patchDeliveryAddress(deliveryAddress, orderId);
+      if (response.modifiedCount > 0) {
         navigate("/payment");
         reset();
       }

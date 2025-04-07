@@ -1,6 +1,7 @@
-async function postDeliveryAddress(place) {
-  const response = await fetch("http://localhost:8000/deliveries", {
-    method: "POST",
+async function patchDeliveryAddress(place, orderId) {
+  console.log(orderId);
+  const response = await fetch(`http://localhost:8000/deliveries/${orderId.orderId}`, {
+    method: "PATCH",
     headers: {
       "content-type": "application/json",
     },
@@ -14,4 +15,4 @@ async function postDeliveryAddress(place) {
   return response.json();
 }
 
-export { postDeliveryAddress };
+export { patchDeliveryAddress };
