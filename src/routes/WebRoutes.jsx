@@ -28,10 +28,10 @@ export default function WebRoutes() {
         <Route path="/checkout/:orderId" element={<Checkout />} />
         <Route path="/payment" element={<Payments />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/review-orders" element={<ReviewOrders />} />
       </Route>
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/review-orders" element={<ReviewOrders />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signout" element={<Signout />} />
       <Route path="/signup" element={<Signup />} />
