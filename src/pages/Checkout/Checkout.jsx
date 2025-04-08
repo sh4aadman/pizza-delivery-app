@@ -19,9 +19,9 @@ export default function Checkout() {
 
   const onCheckout = async (data) => {
     const placeToDeliver = data.place;
+    const deliveryAddress = { placeToDeliver };
 
     try {
-      const deliveryAddress = { placeToDeliver };
       const response = await patchDeliveryAddress(deliveryAddress, orderId);
       if (response.modifiedCount > 0) {
         navigate("/payment");

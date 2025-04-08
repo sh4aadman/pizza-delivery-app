@@ -1,5 +1,4 @@
 async function patchDeliveryAddress(place, orderId) {
-  console.log(orderId);
   const response = await fetch(`http://localhost:8000/deliveries/${orderId.orderId}`, {
     method: "PATCH",
     headers: {
