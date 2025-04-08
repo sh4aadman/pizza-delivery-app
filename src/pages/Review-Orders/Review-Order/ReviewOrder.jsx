@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { patchStatus } from "/src/utils/order-reviews";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ReviewOrder({ order }) {
   const [err, setErr] = useState(null);
