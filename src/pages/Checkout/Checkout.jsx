@@ -37,13 +37,13 @@ export default function Checkout() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="py-28 mb-24 flex flex-col justify-center items-center">
       <form
         className="border-1 rounded-xl p-10"
         onSubmit={handleSubmit(onCheckout)}
       >
         <label className="block my-5 text-2xl">
-          Place to Deliver :
+          Place To Deliver :
           <input
             {...register("place", {
               required: "Delivery address is required",

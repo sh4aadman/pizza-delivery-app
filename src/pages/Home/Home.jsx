@@ -6,7 +6,7 @@ import PizzaSelector from "/src/pages/Home/PizzaSelector/PizzaSelector";
 export default function Home() {
   return (
     <>
-      <div className="md:w-5/6 mx-auto">
+      <div className="md:w-5/6 mx-auto py-10">
         <div className="flex justify-between items-center gap-56">
           <div>
             <Heading content={"Today's Deal"} />

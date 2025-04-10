@@ -49,7 +49,7 @@ export default function Pizzas() {
 
   return (
     <form
-      className="md:w-5/6 mx-auto my-11 py-8 flex flex-col items-start gap-12"
+      className="md:w-5/6 mx-auto my-9 py-8 flex flex-col items-start gap-12"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Heading content={"Custom Pizza"} />

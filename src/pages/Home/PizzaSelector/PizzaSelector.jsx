@@ -5,7 +5,7 @@ import PizzaImg4 from "/src/assets/images/pizza-4.png";
 
 export default function PizzaSelector() {
   return (
-    <section className="mt-8 grid grid-cols-4 w-1/4">
+    <section className="mt-6 grid grid-cols-4 w-1/4 py-16">
       <img
         className="w-20 h-20"
         src={PizzaImg1}
