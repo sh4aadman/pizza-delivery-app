@@ -1,55 +1,90 @@
 import { Link } from "react-router";
 import Inventory from "/src/pages/Dashboard/Inventory/Inventory";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/inventories");
+
+        if (!response.ok) {
+          throw new Error(`HTTP Error! ${response.status}`);
+        }
+
+        const data = await response.json();
+        const objs = data[0];
+        setData(objs);
+      } catch (error) {
+        setData(null);
+        setError(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
   return (
     <section className="bg-[#F5F5F5] font-inter text-black bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right h-screen flex flex-col justify-center items-center">
       <h1 className="text-4xl mb-14">Welcome, Admin!</h1>
       <div className="grid grid-cols-4 gap-3">
         <Inventory
-          name={"base"}
+          data={data}
+          name="base"
           options={[
-            { name: "Thin Crust", value: 20 },
-            { name: "Thick Crust", value: 20 },
-            { name: "Stuffed Crust", value: 20 },
-            { name: "Whole Wheat Crust", value: 20 },
-            { name: "Gluten-Free Crust", value: 20 },
+            { name: "Thin Crust" },
+            { name: "Thick Crust" },
+            { name: "Stuffed Crust" },
+            { name: "Whole Wheat Crust" },
+            { name: "Gluten-Free Crust" },
           ]}
         />
         <Inventory
-          name={"sauce"}
+          data={data}
+          name="sauce"
           options={[
-            { name: "Classic Tomato", value: 20 },
-            { name: "Alfredo", value: 20 },
-            { name: "BBQ", value: 20 },
-            { name: "Pesto", value: 20 },
-            { name: "Spicy Arrabbiata", value: 20 },
+            { name: "Classic Tomato" },
+            { name: "Alfredo" },
+            { name: "BBQ" },
+            { name: "Pesto" },
+            { name: "Spicy Arrabbiata" },
           ]}
         />
         <Inventory
-          name={"cheese"}
+          data={data}
+          name="cheese"
           options={[
-            { name: "Mozzarella", value: 20 },
-            { name: "Cheddar", value: 20 },
-            { name: "Parmesan", value: 20 },
-            { name: "Provolone", value: 20 },
-            { name: "Vegan Cheese", value: 20 },
+            { name: "Mozzarella" },
+            { name: "Cheddar" },
+            { name: "Parmesan" },
+            { name: "Provolone" },
+            { name: "Vegan Cheese" },
           ]}
         />
         <Inventory
-          name={"veggies"}
+          data={data}
+          name="veggie"
           options={[
-            { name: "Bell Peppers", value: 20 },
-            { name: "Mushrooms", value: 20 },
-            { name: "Olives", value: 20 },
-            { name: "Onions", value: 20 },
+            { name: "Bell Peppers" },
+            { name: "Mushrooms" },
+            { name: "Olives" },
+            { name: "Onions" },
           ]}
         />
       </div>
       <p className="italic font-light mt-4">*items shown here are remaining</p>
       <p className="italic font-light mt-4">
-        Check orders here: <Link className="underline" to="/review-orders">Orders</Link>
+        Check orders here:{" "}
+        <Link className="underline" to="/review-orders">
+          Orders
+        </Link>
       </p>
+      {error && <div className="text-thin text-red-500">{error}</div>}
     </section>
   );
 }
