@@ -5,6 +5,7 @@ import Pizzas from "/src/pages/Pizzas/Pizzas";
 import Orders from "/src/pages/Orders/Orders";
 import Checkout from "/src/pages/Checkout/Checkout";
 import Payments from "/src/pages/Payments/Payments";
+import Submit from "/src/pages/Submission/Submit";
 import Login from "/src/pages/Authentication/Login/Login";
 import Signup from "/src/pages/Authentication/Signup/Signup";
 import Signout from "/src/pages/Authentication/Signout/Signout";
@@ -26,7 +27,8 @@ export default function WebRoutes() {
         <Route index element={<Home />} />
         <Route path="/pizzas" element={<Pizzas />} />
         <Route path="/checkout/:orderId" element={<Checkout />} />
-        <Route path="/payment" element={<Payments />} />
+        <Route path="/payment/:orderId" element={<Payments />} />
+        <Route path="/submitted" element={<Submit />} />
         <Route path="/orders" element={<Orders />} />
       </Route>
       <Route path="/admin" element={<Admin />} />

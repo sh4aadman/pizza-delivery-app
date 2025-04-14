@@ -13,16 +13,9 @@ export default function ReviewOrders() {
     return () => {};
   }, []);
 
-  const customCSS = (orders) => {
-    if (orders.length === 0) {
-      return "h-screen";
-    }
-    return "";
-  };
-
   return (
     <section
-      className={`bg-[#F5F5F5] font-inter text-black bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right py-10 flex flex-col justify-center items-center ${customCSS(orders)}`}
+      className="bg-[#F5F5F5] font-inter text-black bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right py-10 flex flex-col justify-center items-center min-h-screen"
     >
       <h1 className="text-4xl mb-8">Welcome, Admin!</h1>
       <p className="italic font-light mb-6">

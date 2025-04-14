@@ -24,7 +24,7 @@ export default function Checkout() {
     try {
       const response = await patchDeliveryAddress(deliveryAddress, orderId);
       if (response.modifiedCount > 0) {
-        navigate("/payment");
+        navigate(`/payment/${orderId.orderId}`);
         reset();
       }
     } catch (error) {
@@ -42,7 +42,7 @@ export default function Checkout() {
         className="border-1 rounded-xl p-10"
         onSubmit={handleSubmit(onCheckout)}
       >
-        <label className="block my-5 text-2xl">
+        <label className="block my-5 text-2xl font-light">
           Place To Deliver :
           <input
             {...register("place", {
@@ -61,12 +61,14 @@ export default function Checkout() {
             autoComplete="on"
           />
         </label>
-        <button
-          className="text-2xl mt-5 mb-2 px-2 py-1 rounded-lg border-1"
-          type="submit"
-        >
-          Checkout
-        </button>
+        <div className="text-center">
+          <button
+            className="text-2xl font-light mt-5 mx-auto mb-2 px-2 py-1 rounded-lg border-1"
+            type="submit"
+          >
+            Checkout
+          </button>
+        </div>
         {errors.place && (
           <div className="text-thin text-red-500">{errors.place.message}</div>
         )}

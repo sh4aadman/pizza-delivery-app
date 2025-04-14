@@ -30,7 +30,7 @@ export default function Dashboard() {
   console.log(data);
 
   return (
-    <section className="bg-[#F5F5F5] font-inter text-black bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right h-screen flex flex-col justify-center items-center">
+    <section className="bg-[#F5F5F5] font-inter text-black bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right min-h-screen flex flex-col justify-center items-center">
       <h1 className="text-4xl mb-14">Welcome, Admin!</h1>
       <div className="grid grid-cols-4 gap-3">
         <Inventory

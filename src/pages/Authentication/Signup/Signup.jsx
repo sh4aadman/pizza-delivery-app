@@ -34,7 +34,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="bg-[#F5F5F5] font-inter font-light text-[#000000] bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right h-screen flex justify-center items-center">
+    <div className="bg-[#F5F5F5] font-inter font-light text-[#000000] bg-[url(/src/assets/backdrops/backdrop.png)] bg-no-repeat bg-right min-h-screen flex justify-center items-center">
       <form
         className="border-1 rounded-xl p-10"
         onSubmit={handleSubmit(onSubmit)}
